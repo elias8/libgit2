@@ -6,6 +6,7 @@
 /// ```
 library;
 
+export 'src/bindings/refspec.dart' show Direction;
 export 'src/bindings/types/result.dart'
     show
         AmbiguousException,
@@ -29,7 +30,10 @@ export 'src/impl/api.dart'
         Blob,
         Cert,
         CertHostkey,
+        CertNone,
+        CertSshHashes,
         CertSshRawType,
+        CertType,
         CertX509,
         CheckoutStrategy,
         CloneLocal,
@@ -38,6 +42,7 @@ export 'src/impl/api.dart'
         ConfigEntry,
         ConfigLevel,
         Credential,
+        CredentialType,
         DescribeResult,
         DescribeStrategy,
         Diff,
@@ -57,6 +62,7 @@ export 'src/impl/api.dart'
         FilterFlag,
         FilterList,
         FilterMode,
+        GitNet,
         Index,
         IndexAddOption,
         IndexCapability,
@@ -65,6 +71,7 @@ export 'src/impl/api.dart'
         Indexer,
         IndexerProgress,
         Libgit2,
+        Libgit2Trace,
         Libgit2Version,
         LibgitFeature,
         Mailmap,
@@ -90,6 +97,7 @@ export 'src/impl/api.dart'
         PathspecFlag,
         PathspecMatchList,
         ProxyOptions,
+        ProxyType,
         PushOptions,
         PushTransferProgress,
         Rebase,

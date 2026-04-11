@@ -11,10 +11,16 @@ import 'dart:typed_data';
 
 import 'package:meta/meta.dart';
 
+import '../bindings/cert.dart';
 import '../bindings/common.dart';
+import '../bindings/credential.dart';
 import '../bindings/global.dart';
 import '../bindings/message.dart';
+import '../bindings/net.dart';
 import '../bindings/oid.dart';
+import '../bindings/proxy.dart';
+import '../bindings/refspec.dart';
+import '../bindings/trace.dart';
 import '../bindings/version.dart';
 
 export '../ffi/libgit2_enums.g.dart'
@@ -53,7 +59,13 @@ export '../ffi/libgit2_enums.g.dart'
         SubmoduleUpdate,
         TraceLevel;
 
+part 'cert.dart';
+part 'credential.dart';
 part 'global.dart';
 part 'message.dart';
+part 'net.dart';
 part 'oid.dart';
+part 'proxy.dart';
+part 'refspec.dart';
+part 'trace.dart';
 part 'version.dart';
