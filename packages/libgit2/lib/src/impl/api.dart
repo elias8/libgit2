@@ -12,6 +12,7 @@ import 'dart:typed_data';
 import 'package:meta/meta.dart';
 
 import '../bindings/annotated_commit.dart';
+import '../bindings/blob.dart';
 import '../bindings/cert.dart';
 import '../bindings/commit.dart';
 import '../bindings/common.dart';
@@ -34,6 +35,7 @@ import '../bindings/refspec.dart';
 import '../bindings/repository.dart';
 import '../bindings/rev_parse.dart' as rp;
 import '../bindings/signature.dart';
+import '../bindings/tag.dart';
 import '../bindings/trace.dart';
 import '../bindings/transaction.dart';
 import '../bindings/tree.dart';
@@ -77,6 +79,7 @@ export '../ffi/libgit2_enums.g.dart'
         TraceLevel;
 
 part 'annotated_commit.dart';
+part 'blob.dart';
 part 'cert.dart';
 part 'commit.dart';
 part 'config.dart';
@@ -98,6 +101,7 @@ part 'refspec.dart';
 part 'repository.dart';
 part 'rev_parse.dart';
 part 'signature.dart';
+part 'tag.dart';
 part 'trace.dart';
 part 'transaction.dart';
 part 'tree.dart';

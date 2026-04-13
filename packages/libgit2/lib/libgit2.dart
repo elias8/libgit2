@@ -129,6 +129,7 @@ export 'src/impl/api.dart'
         RepositoryReference,
         RepositoryReflog,
         RepositoryState,
+        RepositoryTag,
         RepositoryWorktree,
         RevSpec,
         RevSpecFlag,
