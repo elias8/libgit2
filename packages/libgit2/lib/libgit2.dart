@@ -138,6 +138,7 @@ export 'src/impl/api.dart'
         RevSpecFlag,
         Revwalk,
         Signature,
+        SortMode,
         StatusEntry,
         StatusShow,
         Submodule,
