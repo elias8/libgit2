@@ -106,6 +106,7 @@ export 'src/impl/api.dart'
         Odb,
         OdbAsRepository,
         OdbBackend,
+        OdbBackendOps,
         OdbObject,
         OdbReadStream,
         OdbWriteStream,
