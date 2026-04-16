@@ -135,6 +135,7 @@ export 'src/impl/api.dart'
         Repository,
         RepositoryAttr,
         RepositoryBranch,
+        RepositoryCheckout,
         RepositoryGraph,
         RepositoryIgnore,
         RepositoryItem,
