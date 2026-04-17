@@ -23,6 +23,7 @@ export 'src/bindings/types/result.dart'
 export 'src/impl/api.dart'
     show
         AnnotatedCommit,
+        ApplyFlag,
         ApplyLocation,
         AttrKind,
         AttrLookup,
@@ -129,6 +130,7 @@ export 'src/impl/api.dart'
         PushTransferProgress,
         Rebase,
         RebaseOperation,
+        RebaseOperationType,
         RefDb,
         Reference,
         ReferenceType,
@@ -140,6 +142,7 @@ export 'src/impl/api.dart'
         RemoteCallbacks,
         RemoteHead,
         Repository,
+        RepositoryApply,
         RepositoryAttr,
         RepositoryBranch,
         RepositoryCheckout,
