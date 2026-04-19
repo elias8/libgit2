@@ -1,13 +1,26 @@
 # libgit2_dart
 
+[![pub](https://img.shields.io/pub/v/libgit2_dart.svg)](https://pub.dev/packages/libgit2_dart)
+[![ci](https://github.com/elias8/libgit2/actions/workflows/ci.yml/badge.svg)](https://github.com/elias8/libgit2/actions/workflows/ci.yml)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 Idiomatic Dart bindings to [libgit2](https://libgit2.org), the portable C
-implementation of Git.
+implementation of Git. Open, inspect, and manipulate repositories without
+shelling out to `git`.
 
 | Android | iOS | macOS | Linux | Windows |
 |:-------:|:---:|:-----:|:-----:|:-------:|
-|    yes  | yes |  yes  |  yes  |   yes   |
+|    ✓    |  ✓  |   ✓   |   ✓   |    ✓    |
 
-## Getting started
+## Why another one?
+
+The existing Dart bindings I looked at were either unmaintained for years,
+incomplete, or still on the old native-asset plumbing. I wanted a complete
+binding of the libgit2 C API in idiomatic Dart, built on the current Dart
+build hook system, so it's ready for an upcoming project of mine. This is
+that.
+
+## Install
 
 ```yaml
 # pubspec.yaml
@@ -15,21 +28,60 @@ dependencies:
   libgit2_dart: ^0.0.1
 ```
 
-The build hook fetches a prebuilt native library from GitHub Releases by
-default. To build from source instead, set the workspace user-define:
+## Usage
+
+```dart
+import 'dart:io';
+import 'package:libgit2_dart/libgit2_dart.dart';
+
+void main() {
+  Libgit2.init();
+  try {
+    final repo = Repository.init('/tmp/demo');
+    File('/tmp/demo/README.md').writeAsStringSync('# hi\n');
+
+    final index = repo.index();
+    index.addByPath('README.md');
+    index.write();
+    final treeId = index.writeTree();
+    index.dispose();
+
+    final sig = Signature.now(name: 'Ada', email: 'ada@example.com');
+    final tree = Tree.lookup(repo, treeId);
+    final head = Commit.create(
+      repo: repo,
+      updateRef: 'HEAD',
+      author: sig,
+      committer: sig,
+      message: 'initial commit\n',
+      tree: tree,
+    );
+    tree.dispose();
+    repo.dispose();
+
+    print('HEAD: ${head.sha}');
+  } finally {
+    Libgit2.shutdown();
+  }
+}
+```
+
+## Development
+
+When working on the package itself, we can override how libgit2 is acquired with
+the `source` user-define: `prebuilt` (default, downloads a verified binary from 
+releases), `compile` (builds from source with CMake), or `system` (uses the 
+OS installed libgit2; dev only).
 
 ```yaml
 hooks:
   user_defines:
     libgit2_dart:
-      source: compile  # uses CMake; requires cmake + a C compiler on PATH
+      source: compile
 ```
 
-For local development against an existing libgit2 checkout, set the
-`LIBGIT2_SRC` environment variable to its path.
+The pinned C-library tag lives in [`libgit2.version`](libgit2.version).
 
-## Status
+## License
 
-This package is in active early development. The API surface mirrors the
-[libgit2 reference](https://libgit2.org/docs/reference/main/) and grows
-incrementally.
+MIT. See [LICENSE](LICENSE).

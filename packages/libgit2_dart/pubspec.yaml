@@ -1,7 +1,10 @@
 name: libgit2_dart
-description: Idiomatic Dart bindings to libgit2, the portable C implementation of Git.
+description: >-
+  Idiomatic Dart bindings to libgit2, the portable C implementation of Git.
+  Open, inspect, and manipulate repositories without shelling out.
 version: 0.0.1
 repository: https://github.com/elias8/libgit2/tree/main/packages/libgit2_dart
+issue_tracker: https://github.com/elias8/libgit2/issues
 resolution: workspace
 
 # Mirrors libgit2's supported platforms (excluding web — libgit2 has no

@@ -120,7 +120,7 @@ void main() {
         test(
           'snapshots from packs with different object counts are not equal',
           () {
-            // Build a second repo with two commits so its pack has more objects.
+            // Second repo with two commits so its pack has more objects.
             final git2 = GitFixture.init();
             addTearDown(git2.dispose);
             git2.commit('c1', files: {'a.txt': 'hello\n'});
