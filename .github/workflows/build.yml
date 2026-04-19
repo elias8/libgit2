@@ -66,7 +66,7 @@ jobs:
             ext: dylib
             osx_arch: x86_64
             ios_sysroot: iphonesimulator
-            vcpkg_triplet: x64-ios-simulator
+            vcpkg_triplet: x64-ios
           - target: x86_64-linux
             runner: ubuntu-latest
             ext: so
@@ -179,7 +179,7 @@ jobs:
                   "-DVCPKG_TARGET_TRIPLET=${{ matrix.vcpkg_triplet }}"
                   "-DVCPKG_CHAINLOAD_TOOLCHAIN_FILE=$NDK_TOOLCHAIN"
                   "-DANDROID_ABI=${{ matrix.android_abi }}"
-                  "-DANDROID_PLATFORM=android-21"
+                  "-DANDROID_PLATFORM=android-24"
                 )
               fi
               ;;
